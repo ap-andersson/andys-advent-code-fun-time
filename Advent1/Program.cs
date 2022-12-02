@@ -36,7 +36,13 @@ namespace Advent1
             }
 
             // Sum all the calories for each elf
-            var totalCalsByElf = calVals.ToDictionary(x => x.Key, x => x.Value.Sum());
+            var totalCalsByElf = calVals
+                .ToDictionary(
+                    x => x.Key, 
+                    x => x.Value.Sum()
+                    )
+                .OrderByDescending(x => x.Value)
+                .ToList();
 
             // For funz and verification...
             //foreach(var totalCal in totalCalsByElf)
@@ -45,11 +51,20 @@ namespace Advent1
             //}
 
             // Find the elf with most calories
-            var elfWithMostCaloriesWithTotal = totalCalsByElf.OrderByDescending(x => x.Value).First();
+            var elfWithMostCaloriesWithTotal = totalCalsByElf.First();
+
+            Console.WriteLine($"Elf nr '{elfWithMostCaloriesWithTotal.Key}' has most calories, which is '{elfWithMostCaloriesWithTotal.Value}'");
+
+
+            // Part 3
+            var threeTopElves = totalCalsByElf.Take(3).ToList();
+
+            var totalCalsForTopThree = threeTopElves.Select(x => x.Value).Sum();
+
+            Console.WriteLine($"Top three elves is {string.Join(",", threeTopElves.Select(x => x.Key))} and have '{totalCalsForTopThree}' calories in total");
 
             sw.Stop();
 
-            Console.WriteLine($"Elf nr '{elfWithMostCaloriesWithTotal.Key}' has most calories, which is '{elfWithMostCaloriesWithTotal.Value}'");
             Console.WriteLine($"Execution took {sw.Elapsed.TotalMilliseconds:00.0}ms");
 
             Console.ReadKey();
