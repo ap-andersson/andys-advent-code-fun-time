@@ -6,7 +6,7 @@
         {
             //Day1.Day1.Run(args);
             //Day2.Day2.Run(args);
-            Day3.Day3.Run(args);
+            Day6.Day6.Run(args);
         }
     }
 

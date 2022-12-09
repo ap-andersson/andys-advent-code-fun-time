@@ -1,15 +1,13 @@
 ﻿using System.Diagnostics;
 
-namespace AdventOfCode.Day3
+namespace AdventOfCode.Day6
 {
-    public class Day3
+    public class Day6
     {
-        
-
         public static void Run(string[] args)
         {
 
-            Console.WriteLine("Starting elf calorie counting and stopwatch!");
+            Console.WriteLine("Starting...");
 
             var sw = new Stopwatch();
             sw.Start();
@@ -19,7 +17,7 @@ namespace AdventOfCode.Day3
 
             int charNumber = 0;
             int charsProcessed = 0;
-            using (var fileReader = File.OpenText("Day3/input3.txt"))
+            using (var fileReader = File.OpenText("Day6/input6.txt"))
             {
                 int charsRead;
                 do
